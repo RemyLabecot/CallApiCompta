@@ -1,0 +1,8 @@
+<h1>Listes des opérations</h1>
+
+<ul *ngFor="let operation of operations.operations | keyvalue">
+  <li>{{operation.value.RIB}}</li>
+  <li>{{operation.value.Date}}</li>
+  <li>{{operation.value.Libelle}}</li>
+  <li>{{operation.value.Montant}} {{operation.value.Devise}}</li>
+</ul>
