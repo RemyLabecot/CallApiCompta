@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OperationService } from '../operation.service';
+import { IOperation } from '../operation';
 
 @Component({
   selector: 'app-operation-list',
@@ -8,14 +9,24 @@ import { OperationService } from '../operation.service';
 })
 export class OperationListComponent implements OnInit {
 
-  public operations =  [];
+  public operations :IOperation[] =  [];
+  public emps = [];
 
   constructor(private _operationService : OperationService) { }
 
   ngOnInit() {
     this._operationService.getOperations()
     .subscribe(data => this.operations = data);
-    
+
+    //test transform to array
+    let arr = [];
+    // Object.keys(this.operations).map(function(key) {
+    //   arr.push({[key]: this.operations[key]})
+    //   return arr;
+    // });
+    arr = Object.keys(this.operations);
+    console.log(arr);
+
   }
 
 }
