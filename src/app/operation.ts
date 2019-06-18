@@ -1,8 +1,8 @@
 export interface IOperation {
 
-    rib: string,
-    date: string,
-    libelle: string,
-    montant: string,
-    devise: string
+    RIB: string,
+    Date: string,
+    Libelle: string,
+    Montant: string,
+    Devise: string
 }

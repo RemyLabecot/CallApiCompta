@@ -1,10 +1,16 @@
-<h1>Listes des opérations</h1>
+<div class="container">
+  <h1>Listes des opérations</h1>
 
-<ul *ngFor="let operation of operations">
-  <li>{{operation.RIB}}</li>
-  <li>{{operation.Date}}</li>
-  <li>{{operation.Libelle}}</li>
-  <li>{{operation.Montant}} {{operation.Devise}}</li>
-</ul>
+  <input type="date">--<input type="date">
+  <br>
+  <br>
+  <input type="number">
+  <ul *ngFor="let operation of operations">
+    <li>{{operation.RIB}}</li>
+    <li>{{operation.Date}}</li>
+    <li>{{operation.Libelle}}</li>
+    <li>{{operation.Montant}} {{operation.Devise}}</li>
+  </ul>
 
-<span>{{ operations | json }}</span>
+  <span>{{ operations | json }}</span>
+</div>

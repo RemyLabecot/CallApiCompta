@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OperationService } from '../operation.service';
 import { IOperation } from '../operation';
-import { IStatut } from '../statut';
+import { map } from 'rxjs/operators';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-operation-list',
@@ -13,13 +14,23 @@ export class OperationListComponent implements OnInit {
   public operations: IOperation[];
 
 
-  constructor(private _operationService: OperationService) { }
+  constructor(private _operationService: OperationService, public datepipe: DatePipe) { }
 
   ngOnInit() {
     this._operationService.getOperations()
     .subscribe(data => {
-      let statut: IStatut;
-      statut = data;
-      this.operations = statut.operations; });
+      const res = data.operations;
+      for (const i of res) {
+        let dd: string;
+        dd = i.Date.substring(0, 2);
+        let mm: string;
+        mm = i.Date.substring(3, 5);
+        const yyyy = i.Date.substring(6, 10);
+        const newString = mm + '/' + dd + '/' + yyyy;
+        i.Date = newString;
+        i.Date = this.datepipe.transform(new Date(i.Date), 'dd/MM/yy');
+       }
+      this.operations = data.operations;
+    });
   }
 }
