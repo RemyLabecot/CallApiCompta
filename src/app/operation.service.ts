@@ -13,10 +13,5 @@ export class OperationService {
 
     getOperations(): Observable<IStatut> {
         return this.http.get<IStatut>(this._url);
-        // .pipe(
-        //     map(response => {
-        //       response.mydate = new Date(response.mydate);
-        //       return response;
-        //     });
     }
 }
