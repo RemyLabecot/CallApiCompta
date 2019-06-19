@@ -29,7 +29,6 @@ export class OperationListComponent implements OnInit {
   getSelectedRib() {
     this._operationService.getOperations()
       .subscribe(data => {
-        const res = data.operations;
         this.operations = data.operations;
         this.operationSelected = this.operations
           .filter(x =>
