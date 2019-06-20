@@ -4,20 +4,20 @@
   <!-- <!-- <input type="date" [(ngModel)]= >--<input type="date">
   <br>
   <br> -->
-  <input type="text" [(ngModel)]=ribSelected placeholder="entrez un rib"/>
+  <input type="text" [(ngModel)]=ribSelected placeholder="entrez un rib" />
   <br>
-  <input type="date" [(ngModel)]=dateMin placeholder="entrez la date mini"/>--<input type="date" [(ngModel)]=dateMax placeholder="entrez la date maxi"/>
+  <input type="date" [(ngModel)]=dateMin placeholder="entrez la date mini" />--<input type="date" [(ngModel)]=dateMax
+    placeholder="entrez la date maxi" />
   <br>
-  <button type="button" (click)=getSelectedRib()>Rechercher</button>
-
-  <ul *ngFor="let prout of operationSelected">
-    <li>{{prout.RIB}}</li>
-    <li>{{prout.Date}}</li>
-    <li>{{prout.Libelle}}</li>
-    <li>{{prout.Montant}} {{prout.Devise}}</li>
+  <button type="button" (click)=getOperationsByRibAndDate()>Rechercher</button>
+  <p>{{message}}</p>
+  <ul *ngFor="let operation of operationSelected">
+    <li>{{operation.RIB}}</li>
+    <li>{{operation.Date}}</li>
+    <li>{{operation.Libelle}}</li>
+    <li>{{operation.Montant}} {{operation.Devise}}</li>
   </ul>
   <br>
   <br>
   <hr />
-  <span>{{ operations | json }}</span>
 </div>
